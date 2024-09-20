@@ -24,7 +24,7 @@
 <!-- We update the version when there is a backward-incompatible change to this
 schema. In this case the version should be set to the next CKAN version number.
 (x.y but not x.y.z since it needs to be a float) -->
-<schema name="ckan" version="2.8">
+<schema name="ckan_packages" version="2.8">
 
 <types>
     <fieldType name="string" class="solr.StrField" sortMissingLast="true" omitNorms="true"/>
@@ -158,7 +158,6 @@ schema. In this case the version should be set to the next CKAN version number.
     <dynamicField name="res_extras_*" type="text" indexed="true" stored="true" multiValued="true"/>
     <dynamicField name="vocab_*" type="string" indexed="true" stored="true" multiValued="true"/>
     <dynamicField name="*" type="string" indexed="true"  stored="false"/>
-
 </fields>
 
 <uniqueKey>index_id</uniqueKey>
@@ -187,4 +186,3 @@ schema. In this case the version should be set to the next CKAN version number.
 <copyField source="author" dest="text"/>
 
 </schema>
-
