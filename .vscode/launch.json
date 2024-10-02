@@ -22,7 +22,7 @@
                 // },
                 {
                     "localRoot": "${workspaceFolder}/src/",
-                    "remoteRoot": "/srv/app/src_extensions/"
+                    "remoteRoot": "/usr/lib/ckan/venv/src_extensions/"
                 }
             ]
         },

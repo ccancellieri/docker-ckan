@@ -7,7 +7,9 @@
  (the "License"); you may not use this file except in compliance with
  the License.  You may obtain a copy of the License at
 
+ 
      http://www.apache.org/licenses/LICENSE-2.0
+ 
 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,6 +17,7 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
+ 
 
 <!--
      NB Please copy changes to this file into the multilingual schema:
@@ -66,7 +69,6 @@ schema. In this case the version should be set to the next CKAN version number.
         </analyzer>
     </fieldType>
 
-
     <!-- A general unstemmed text field - good if one does not know the language of the field -->
     <fieldType name="textgen" class="solr.TextField" positionIncrementGap="100">
         <analyzer type="index">
@@ -82,7 +84,6 @@ schema. In this case the version should be set to the next CKAN version number.
         </analyzer>
     </fieldType>
 </types>
-
 
 <fields>
     <field name="index_id" type="string" indexed="true" stored="true" required="true" />
@@ -110,10 +111,10 @@ schema. In this case the version should be set to the next CKAN version number.
     <field name="tags" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="groups" type="string" indexed="true" stored="true" multiValued="true"/>
     <field name="organization" type="string" indexed="true" stored="true" multiValued="false"/>
-
+ 
     <field name="capacity" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="permission_labels" type="string" indexed="true" stored="false" multiValued="true"/>
-
+ 
     <field name="res_name" type="textgen" indexed="true" stored="true" multiValued="true" />
     <field name="res_description" type="textgen" indexed="true" stored="true" multiValued="true"/>
     <field name="res_format" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -137,21 +138,21 @@ schema. In this case the version should be set to the next CKAN version number.
     <field name="views_recent" type="int" indexed="true" stored="false"/>
     <field name="resources_accessed_total" type="int" indexed="true" stored="false"/>
     <field name="resources_accessed_recent" type="int" indexed="true" stored="false"/>
-
+ 
     <field name="metadata_created" type="date" indexed="true" stored="true" multiValued="false"/>
     <field name="metadata_modified" type="date" indexed="true" stored="true" multiValued="false"/>
-
+ 
     <field name="indexed_ts" type="date" indexed="true" stored="true" default="NOW" multiValued="false"/>
-
+ 
     <!-- Copy the title field into titleString, and treat as a string
          (rather than text type).  This allows us to sort on the titleString -->
     <field name="title_string" type="string" indexed="true" stored="false" />
-
+ 
     <field name="data_dict" type="string" indexed="false" stored="true" />
     <field name="validated_data_dict" type="string" indexed="false" stored="true" />
-
+ 
     <field name="_version_" type="string" indexed="true" stored="true"/>
-
+ 
     <dynamicField name="*_date" type="date" indexed="true" stored="true" multiValued="false"/>
 
     <dynamicField name="extras_*" type="text" indexed="true" stored="true" multiValued="false"/>
@@ -159,10 +160,11 @@ schema. In this case the version should be set to the next CKAN version number.
     <dynamicField name="vocab_*" type="string" indexed="true" stored="true" multiValued="true"/>
     <dynamicField name="*" type="string" indexed="true"  stored="false"/>
 </fields>
-
+ 
 <uniqueKey>index_id</uniqueKey>
 <defaultSearchField>text</defaultSearchField>
 <solrQueryParser defaultOperator="AND"/>
+ 
 
 <copyField source="url" dest="urls"/>
 <copyField source="ckan_url" dest="urls"/>
@@ -184,5 +186,5 @@ schema. In this case the version should be set to the next CKAN version number.
 <copyField source="res_description" dest="text"/>
 <copyField source="maintainer" dest="text"/>
 <copyField source="author" dest="text"/>
-
+ 
 </schema>
