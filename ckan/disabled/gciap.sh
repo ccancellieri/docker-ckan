@@ -2,7 +2,7 @@
 
 cd ${APP_DIR}/src_extensions/fao-maps-ckan-authentication/ &&\
 pip install -r requirements.txt &&\
-paster --plugin=ckan config-tool ${APP_DIR}/production.ini -s app:main \
+paster --plugin=ckan config-tool /etc/ckan/production.ini -s app:main \
     "ckanext.gciap.authorization_endpoint=https://data.review.fao.org/ckan-auth" \
     "ckanext.gciap.remember_name=auth_tkt" \
     "ckanext.gciap.authorization_header=X-Goog-Iap-Jwt-Assertion" \

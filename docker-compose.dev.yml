@@ -48,6 +48,10 @@ services:
 
   solr:
     container_name: solr
+    ulimits:
+      nofile:
+        soft: 8983
+        hard: 8983
     build:
       context: solr/
     ports:
