@@ -109,12 +109,12 @@ schema. In this case the version should be set to the next CKAN version number.
         <!-- <field name="res_jsonschema_opt" type="text" indexed="true" stored="true" multiValued="false"/>
         <field name="res_jsonschema_body" type="text" indexed="true" stored="true" multiValued="false"/>
         <field name="res_jsonschema_type" type="caseInsensitive" indexed="true" stored="true" multiValued="false"/> -->
- 
+
         <field name="pkg_jsonschema_type" type="text" indexed="true" stored="true" multiValued="false" />
         <field name="jsonschema_type" type="text" indexed="true" stored="true" multiValued="false" />
         <field name="jsonschema_body" type="text" indexed="true" stored="true" multiValued="false" />
         <field name="jsonschema_opt" type="text" indexed="true" stored="true" multiValued="false" />
- 
+
     </fields>
     <uniqueKey>index_id</uniqueKey>
     <defaultSearchField>text</defaultSearchField>
@@ -136,7 +136,7 @@ schema. In this case the version should be set to the next CKAN version number.
     <copyField source="description" dest="text"/>
     <copyField source="format" dest="text"/>
     <copyField source="url" dest="urls"/>
- 
+
     <copyField source="pkg_jsonschema_type" dest="text"/>
     <copyField source="jsonschema_type" dest="text"/>
     <copyField source="jsonschema_body" dest="text"/>

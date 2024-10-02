@@ -187,3 +187,4 @@ schema. In this case the version should be set to the next CKAN version number.
 <copyField source="author" dest="text"/>
 
 </schema>
+
