@@ -35,6 +35,7 @@ services:
 
   db:
     container_name: db
+    platform: linux/amd64
     env_file:
       - .env
     build:
@@ -48,6 +49,7 @@ services:
 
   solr:
     container_name: solr
+    platform: linux/amd64
     ulimits:
       nofile:
         soft: 8983

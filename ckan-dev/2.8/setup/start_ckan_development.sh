@@ -61,7 +61,7 @@ paster --plugin=ckan config-tool $APP_DIR/src/ckan/test-core.ini \
 
 # Run the prerun script to init CKAN and create the default admin user
 #sudo -u ckan -EH python prerun.py
-src/ckan/contrib/docker/ckan-entrypoint.sh
+sh src/ckan/contrib/docker/ckan-entrypoint.sh
 # Run any startup scripts provided by images extending this one
 if [[ -d "/docker-entrypoint.d" ]]
 then
@@ -118,8 +118,8 @@ elif [[ -n "$DEBUGPY" ]]
 then
     echo "[START_CKAN_DEVELOPMENT] DEBUG SET; Starting CKAN in debug mode"
     pip install debugpy
-    sudo -u ckan -EH python -m debugpy --log-to-stderr --listen 0.0.0.0:5678 paster serve --reload $CKAN_INI
-    # python -m debugpy --log-to-stderr --listen 0.0.0.0:5678 $APP_DIR/bin/paster serve --reload $CKAN_INI
+    # sudo -u ckan -EH python -m debugpy --log-to-stderr --listen 0.0.0.0:5678 paster serve --reload $CKAN_INI
+    python -m debugpy --log-to-stderr --listen 0.0.0.0:5678 $APP_DIR/bin/paster serve --reload $CKAN_INI
     # sudo -u ckan -EH python -m debugpy --log-to-stderr --wait-for-client --listen 0.0.0.0:5678 paster serve --reload $CKAN_INI
 else
     #sudo -u ckan -EH paster serve --reload $CKAN_INI

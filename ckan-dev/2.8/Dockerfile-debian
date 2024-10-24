@@ -11,10 +11,12 @@ ENV CKAN_INI=/etc/ckan/production.ini
 USER root 
 #RUN apt update
 #RUN apt install -y libffi-dev
+RUN apt-get update
+RUN apt-get install -y zlib1g-dev
 
 COPY 2.8/setup/start_ckan_development.sh ${APP_DIR}/bin/ 
 ENV CMD_PATH="${APP_DIR}/bin/start_ckan_development.sh"
-#RUN chmod +x ${CMD_PATH}
+RUN chmod +x ${CMD_PATH}
 RUN chown -R ckan:ckan ${APP_DIR}
 #RUN chown -R ckan:ckan ${SRC_EXTENSIONS_DIR}
 RUN chown ckan:ckan ${CMD_PATH}
@@ -27,6 +29,7 @@ RUN . ${APP_DIR}/bin/activate
 #RUN pip install --no-binary :all: -r https://raw.githubusercontent.com/ckan/ckan/${GIT_BRANCH}/dev-requirements.txt
 COPY dev-requirements.txt ${APP_DIR}
 RUN pip install -r ${APP_DIR}/dev-requirements.txt
+#RUN pip install --upgrade --no-cache-dir -r ${APP_DIR}/dev-requirements.txt
 
 # Create folder for local extensions sources
 RUN mkdir $SRC_EXTENSIONS_DIR
